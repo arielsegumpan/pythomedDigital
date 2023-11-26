@@ -497,6 +497,19 @@ $green_light: #6b993b;
                 }
             }
         }
+
+        #shop_prod_single{
+            img.img{
+                height: 400px;
+                object-fit: cover;
+                width: 100%;
+            }
+
+            img.img-sm{
+                height: 80px;
+                object-fit: cover;
+            }
+        }
     }
     // ASIDE
     #aside{
@@ -832,6 +845,15 @@ $green_light: #6b993b;
                 }
             }
         }
+        #shop_prod_single{
+            img.img{
+                height: 400px;
+            }
+
+            img.img-sm{
+                height: 150px;
+            }
+        }
     }
         // ASIDE
         #aside{
@@ -1093,6 +1115,16 @@ $green_light: #6b993b;
                 button.owl-prev, button.owl-next{
                     padding: 0.8rem 1.5rem!important;
                 }
+            }
+        }
+
+        #shop_prod_single{
+            img.img{
+                height: 280px;
+            }
+
+            img.img-sm{
+                height: 80px;
             }
         }
     }
@@ -1713,11 +1745,13 @@ $green_light: #6b993b;
                 object-fit: cover;
                 width: 100%;
             }
+
             img.img-sm{
                 height: 100px;
                 object-fit: cover;
             }
         }
+     
     }
 
     #aside{
