@@ -1342,10 +1342,13 @@ $green_light: #6b993b;
         padding: 10rem 0;
         #shop_prod_lists{
             img{
-                height: 230px;
+                height: 150px;
             }
         }
         div#featured{
+            img{
+                height: 200px;
+            }
             .owl-nav{
                 margin-top: 2rem;
                 button.owl-prev, button.owl-next{
@@ -1656,6 +1659,11 @@ $green_light: #6b993b;
     // ================ SHOP =====================
     section#products{
         padding: 10rem 0;
+        #shop_prod_lists{
+            img{
+                height: 240px;
+            }
+        }
         div#featured{
             img{
                 height: 300px;
