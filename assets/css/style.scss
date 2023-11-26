@@ -1,0 +1,1796 @@
+
+$trans: .3s ease;
+$trans2: .5s ease-in-out;
+$green-light: #A4BE7B;
+$green: #285430;
+$white: #fff;
+$item_height: 75vh;
+$hover_green: #376940;
+$green_light: #55FF70;
+*{
+    .dropdown-toggle::after {
+        display: none!important;
+        margin-left:0!important;
+        vertical-align: 0!important;
+        content: none!important;
+        border-top: 0!important;
+        border-right: 0!important;
+        border-bottom: 0!important;
+        border-left: 0!important;
+    }
+
+    .navbar-toggler:focus{
+        box-shadow: none!important;
+    }
+
+    // humberger menu
+    .toggler{
+        /* ALWAYS KEEPING THE TOGGLER OR THE CHECKBOX ON TOP OF EVERYTHING :  */
+        z-index:10;
+        height: 50px;
+        width: 50px;
+        position: absolute;
+        top: 0;
+        right: 0;
+        cursor: pointer;
+        opacity: 0;
+    }
+  
+    .hamburger{
+        position: absolute;
+        right: .8rem;
+        top: .4rem;
+        height: 40px;
+        width: 50px;
+        padding: 0.6rem;
+        
+        /* FOR DISPLAYING EVERY ELEMENT IN THE CENTER : */
+        
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    /* CREATING THE MIDDLE LINE OF THE HAMBURGER : */
+    
+    .hamburger > div{
+        position: relative;
+        top: 0;
+        right: 0;
+        background: white;
+        height: 2px;
+        width: 60%;
+        transition: all  0.4s ease;
+    }
+    
+    /* CREATING THE TOP AND BOTTOM LINES : 
+    TOP AT -10PX ABOVE THE MIDDLE ONE AND BOTTOM ONE IS 10PX BELOW THE MIDDLE: */
+    
+    .hamburger > div::before,
+    .hamburger > div::after{
+        content: '';
+        position: absolute;
+        top: -10px;
+        background: white;
+        width: 100%;
+        height: 2px;
+        transition: all  0.4s ease;
+    }
+    
+    .hamburger > div::after{
+        top: 10px;
+    }
+    
+    /* IF THE TOGGLER IS IN ITS CHECKED STATE, THEN SETTING THE BACKGROUND OF THE MIDDLE LAYER TO COMPLETE BLACK AND OPAQUE :  */
+    
+    .toggler:checked + .hamburger > div{
+        background: rgba(0,0,0,0);
+    }
+    
+    .toggler:checked + .hamburger > div::before{
+        top: 0;
+        transform: rotate(45deg);
+        background: white;
+    }
+    
+    /* AND ROTATING THE TOP AND BOTTOM LINES :  */
+    
+    .toggler:checked + .hamburger > div::after{
+        top: 0;
+        transform: rotate(135deg);
+        background: white;
+    }
+    
+    
+    /* MAIN MENU WITH THE WHITE BACKGROUND AND THE TEXT :  */
+    
+    .menu{
+        background: $green;
+        width: 0%;
+        height: 100vh;
+        
+        /* APPLYING TRANSITION TO THE MENU :  */
+        
+        transition: all 0.4s ease;
+    }
+    
+    /* IF THE TOGGLER IS CHECKED, THEN INCREASE THE WIDTH OF THE MENU TO 30% , CREATING A SMOOTH EFFECT :  */
+    
+    .toggler:checked ~ .menu{
+        width: 30%;
+    }
+}
+@media (min-width: 375px) {
+     // HEADER
+    header{
+        .pat1{
+            top: -2rem;
+            left: 0;
+            height: 100px;
+            width: auto;
+            opacity: .4;
+        }
+        .pat2{
+            bottom: 0;
+            right: 6rem;
+            height: 50px;
+            width: auto;
+            opacity: .4;
+        }
+        .pat3{
+            bottom: 0;
+            right: 0;
+            height: 50px;
+            width: auto;
+            opacity: .4;
+        }
+        #header-mid{
+            height: 7rem;
+            width: 100%;
+            border-bottom: 1px solid rgba($green-light, .2);
+          
+        }
+        #navbtn{
+            a{
+                color: white;
+                transition: $trans;
+            }
+            a:hover{
+                color: $green-light;
+            }
+        }
+        nav.navbar{
+            z-index: 30;
+            ul.navbar-nav{
+                li.nav-item{
+                    a.nav-link{
+                        padding: 0;
+                        color: white ;
+                        transition: $trans;
+                    }
+                    a.nav-link:hover{
+                        color: $green-light;
+                    }
+                }
+            }
+        }
+    }
+    // FOOTER
+    footer{
+        #main_foot{
+            padding: 7rem 0;
+        }
+    }
+
+    #cart_count{
+        left: -1rem;
+        top: 50%;
+        transform: translateY(-50%);
+        span{
+            border-radius: 3px;
+            font-size: 12px;
+        }
+    }
+    // ========================================== FRONT PAGE =============================================
+    // CAROUSEL
+    section#carousel{
+        div#carous{
+            position: relative;
+            .item{
+                height: $item_height;
+                width: 100%;
+                .content{
+                    width: 100%;
+                    top: 50%;
+                    left: 0;
+                    transform: translateY(-50%);
+                    z-index: 8;
+                }
+                img{
+                    height: $item_height;
+                    background-size: contain;
+                    object-fit: cover;
+                }
+            }
+
+            .owl-nav{
+                transition: $trans2;
+                position: absolute;
+                top: 80%;
+                transform: translateY(-50%);
+                right: 1rem;
+                display: flex;
+                flex-direction: column;
+                opacity: 0;
+                button.owl-prev, button.owl-next{
+                    background-color: $green;
+                    color: $green-light;
+                    transition: $trans;
+                    padding: .7rem .8rem!important;
+                    border-radius: 0!important;
+                }
+              
+            }
+            &:hover {
+                .owl-nav {
+                    opacity: 1!important;
+                }
+            }
+        }
+
+    }
+
+    // STORE LISTS
+    section#store_lists{
+        padding: 4rem 0 5rem 0;
+        .col{
+            img{
+                width: 130px;
+            }
+        }
+    }
+    // SERVICES
+    section#services{
+        padding: 5rem 0;
+        .card{
+            .card-header{
+                img{
+                    height: 80px;
+                }
+            }
+        }
+    }
+
+    // PRODUCT CATEGORIES
+    section#prod_categories{
+        padding: 5rem 0;
+        .shop_btn{
+            a{
+                width: 100%;
+            }
+        }
+        .card{
+            transition: $trans2;
+            img{
+                height:180px;
+                background-position: center;
+                object-fit: cover;
+                background-repeat: no-repeat;
+                background-size: contain;
+                transition: $trans2;
+                scale: 1;
+            }
+
+            i{
+                transition: $trans2;
+                opacity: 0;
+            }
+
+            h1, h2, h3, h4, h5, h6{
+                width: 100%;
+                font-size: 15px;
+                text-shadow: 2px 1px 10px rgba($color: #000000, $alpha: .3);
+            }
+        }
+        .card:hover img{
+            scale: 1.1;
+        }
+        .card:hover i{
+            opacity: 1;
+        }
+
+    }
+    // FEATURE PRODUCT
+    section#featured_prod{
+        padding: 6rem 0;
+        object-fit: cover;
+        width: auto;
+        background-size: cover;
+        background-repeat: no-repeat;
+        #featured_prod_slide{
+            .item{
+                .card{
+                    overflow: hidden;
+                    img{
+                        transition: $trans2;
+                        height: 250px;
+                        width: 100%;
+                        object-fit: cover;
+                        background: center/cover no-repeat;
+                        background-size: cover;
+                        scale: 1;
+                    }
+                }
+                &:hover img{
+                    scale: 1.05;
+                }
+            }
+        }
+
+
+    }
+
+    // NEWS AND UPDATES
+    section#news_and_updates{
+        padding: 6rem 0 0 0;
+        position: relative;
+        .col{
+            div{
+                img{
+                    object-fit: cover;
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    height:140px;
+                    transition: $trans2;
+                    scale: 1;
+    
+                    &:hover{
+                        scale: 1.01;
+                    }
+                }
+            }
+        }
+    }
+
+    // TESTIMONIAL
+    section#testimonial{
+        padding: 6rem 0;
+
+        .card{
+            transition: $trans2;
+            cursor: pointer;
+            bottom: 0;
+            &:hover{
+                bottom: .7rem;
+            }
+        }
+    }
+    // ========================================== END OF FRONT PAGE =============================================
+
+    // =================================CONTACT PAGE ==================================
+    section#hero{
+        height: 50vh;
+        width: 100%;
+        background-position-y: top;
+        background-repeat: no-repeat;
+        background-size: cover;
+        object-fit: cover;
+        background-position-x: right;
+        .container{
+            position: relative;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 20;
+        }
+    }
+    section#hero::before{
+        overflow: hidden;
+        content: '';
+        width: 100%;
+        height: 50vh;
+        position: absolute;
+        z-index: 1;
+        background: rgb(236,249,231);
+        background: -moz-linear-gradient(124deg, rgba(236,249,231,0.9) 0%, rgba(236,249,231,0.9) 35%, rgba(255,255,255,0) 96%);
+        background: -webkit-linear-gradient(124deg, rgba(236,249,231,0.9) 0%, rgba(236,249,231,0.9) 35%, rgba(255,255,255,0) 96%);
+        background: linear-gradient(124deg, rgba(236,249,231,0.9) 0%, rgba(236,249,231,0.9) 35%, rgba(255,255,255,0) 96%);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ecf9e7",endColorstr="#ffffff",GradientType=1);
+    }
+    section#hero_single{
+        height: 70vh;
+        width: 100%;
+        background-position: top;
+        background-repeat: no-repeat;
+        background-size: cover;
+        
+        .container{
+            position: relative;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 20;
+        }
+        #blog_single_details{
+            z-index: 0;
+       
+        }
+    }
+    section#hero_single::before{
+        overflow: hidden;
+        content: '';
+        width: 100%;
+        height: 70vh;
+        position: absolute;
+        z-index: 1;
+        background: rgb(236,249,231);
+        background: -moz-linear-gradient(124deg, rgba(236,249,231,0.9) 0%, rgba(236,249,231,0.9) 35%, rgba(255,255,255,0) 96%);
+        background: -webkit-linear-gradient(124deg, rgba(236,249,231,0.9) 0%, rgba(236,249,231,0.9) 35%, rgba(255,255,255,0) 96%);
+        background: linear-gradient(124deg, rgba(236,249,231,0.9) 0%, rgba(236,249,231,0.9) 35%, rgba(255,255,255,0) 96%);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ecf9e7",endColorstr="#ffffff",GradientType=1);
+    }
+    section#contact{
+        padding: 8rem 0;
+    }
+
+    // ============================END OF CONTACT PAGE =================================
+    // ============================ SHOP ====================================
+    section#products{
+        padding: 5rem 0;
+        #shop_prod_lists{
+            img{
+                height: 240px;
+                width: 100%;
+                object-fit: cover;
+                background-position: center;
+                background-repeat: no-repeat;
+            }
+        }
+        div#featured{
+            img{
+                height: 300px;
+                width: 100%;
+                object-fit: cover;
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: cover;
+            }
+            .owl-nav{
+                margin-top: 2rem;
+                button.owl-prev, button.owl-next{
+                    background-color: $green;
+                    color: $white;
+                    padding: 0.8rem 1.5rem!important;
+                    transition: $trans;
+                }
+
+                button.owl-prev:hover, button.owl-next:hover{
+                    background-color: $hover_green;
+                }
+            }
+        }
+    }
+    // ASIDE
+    #aside{
+        #featured_prod_aside{
+            overflow: hidden;
+            a{
+                overflow: hidden;
+                .card{
+                    transition:$trans2;
+                    width: 100%;
+                    height: 150px;
+                    img{
+                        transition: $trans2;
+                        overflow: hidden;
+                        background-position: center;
+                        background-size: cover;
+                        object-fit: cover;
+                        scale: 1;
+                        height: 150px;
+                    }
+                }
+            }
+            a:hover img{
+                scale: 1.09;
+            }
+        }
+        #recent_post{
+            overflow: hidden;
+            a{
+                overflow: hidden;
+                .card{
+                    transition:$trans2;
+                    width: 100%;
+                    height: 150px;
+                    img{
+                        transition: $trans2;
+                        overflow: hidden;
+                        background-position: center;
+                        background-size: cover;
+                        object-fit: cover;
+                        scale: 1;
+                        height: 150px;
+                    }
+                }
+            }
+            a:hover img{
+                scale: 1.09;
+            }
+        }
+    }
+    // SINGLE PRODUCT
+
+    // ============================ END OF SHOP ====================================
+    // ============================ BLOG POST ======================================
+    section#blog{
+        padding: 7rem 0;
+        .card{
+            img{
+                width: 100%;
+                height: 250px;
+                object-fit: cover;
+                background-position: center;
+                background-size: cover;
+                
+            }
+           .card-body{
+                .attributes{
+                    width: 100%;
+                    position: relative;
+                }
+                .attributes::before{
+                    content: '';
+                    position: absolute;
+                    top: 50%;
+                    right: 1rem;
+                    transform: translateY(-50%);
+                    width: 1px;
+                    height: 5rem;
+                    background-color: $green-light;
+                }
+                .title{
+                    width: calc(100% - 0%);
+                }
+           }
+        }
+    }
+    section#blog.single_blog{
+        padding: 5rem 0;
+    }
+    // ============================ END OF BLOG POST ====================================
+
+    // ============ PAGE ABOUT ============
+    // page about
+    section#page_about{
+        padding: 6rem 0;
+        .card{
+            .icon{
+               img{
+                    width: 100%;
+                    height: 80px;
+               }
+            }
+        }
+
+        #sec_2{
+            margin: 5rem 0;
+            padding: 5rem 0;
+        }
+        #sec_3{
+            .vstack{
+                img{
+                    width:100%;
+                    height: 300px;
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                }
+            }
+        }
+
+        .about_prod{
+            .g-img{
+               img{
+                height: 150px;
+                object-fit: cover;
+                background-repeat: no-repeat;
+                background-size: cover;
+               }
+            }
+        }
+    }
+    // ============ END OF PAGE ABOUT ========
+    // ============ PAGE OUR STORE ============
+    section#our_store{
+        padding: 6rem 0;
+
+        .sec_1{
+            img{
+                height:150px;
+                object-fit: cover;
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: cover;
+           }
+        }
+    }
+    section#os_natural{
+        padding: 6rem 0;
+        object-fit: cover;
+        width: auto;
+        background-size: cover;
+        background-repeat: no-repeat;
+        object-fit: cover;
+        
+        
+    }
+    section#editor_post{
+        padding: 7rem 0;
+    }
+    // ============END OF PAGE OUR STORE ============
+    // ============ PAGE OUR TEAM ============
+    section#team{
+        padding: 5rem 0;
+        .card{
+            transition: $trans2;
+            top: 0;
+            img{
+                height: 400px;
+                object-fit: cover;
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: cover;
+                filter: grayscale(100%) brightness(120%);
+            }
+            .card-body{
+                h1,h2,h3,h4,h5,h6
+                {
+                    letter-spacing: 2px;
+                }
+                a{
+                    transition: $trans2;
+                    color: $green;
+                }
+                a:hover{
+                    color: $green_light;
+                }
+            }
+        }
+        .card:hover{
+            top: -1rem;
+        }
+    }
+    // ============END OF PAGE OUR TEAM ============
+    // ======= PAGE WEBINAR ===========
+    section#webinar{
+        padding: 7rem 0;
+    }
+    // ======= END OF WEBINAR =========
+}
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {
+     // HEADER
+     header{
+        .pat1{
+            top: -2rem;
+            left: 0;
+            height: 150px;
+            width: auto;
+            opacity: .4;
+        }
+        .pat2{
+            display: none;
+            bottom: 0;
+            right: 6rem;
+            height: 100px;
+            width: auto;
+            opacity: .4;
+            position:sticky;
+        }
+        .pat3{
+            display: none;
+            bottom: 0;
+            right: 0;
+            height: 180px;
+            width: auto;
+            opacity: .4;
+            position: fixed;
+        }
+     
+    }
+    // ========================================== FRONT PAGE =============================================
+    // CAROUSEL
+    section#carousel{
+        div#carous{
+            .item{
+                height: 120vh;
+                width: 100%;
+                .content{
+                    width: 100%;
+                    top: 50%;
+                    left: 0;
+                    transform: translateY(-50%);
+                    z-index: 8;
+                }
+                img{
+                    height: 120vh;
+                }
+            }
+
+            .owl-nav{
+                top: 80%;
+                transform: translateY(-50%);
+                right: 1rem;
+                opacity: 0;
+                button.owl-prev, button.owl-next{
+                    background-color: $green;
+                    color: $green-light;
+                    transition: $trans;
+                    padding: .7rem .8rem!important;
+                }
+              
+            }
+            &:hover {
+                .owl-nav {
+                    opacity: 1!important;
+                }
+            }
+        }
+
+    }
+
+     // NEWS AND UPDATES
+     section#news_and_updates{
+        .col{
+            div{
+               
+                img{
+                    width: 100%;
+                    height:250px;
+                    transition: $trans2;
+                    scale: 1;
+    
+                    &:hover{
+                        scale: 1.1;
+                    }
+                }
+            }
+        }
+    }
+    // PRODUCT CATEGORIES
+    section#prod_categories{
+        padding: 5rem 0;
+        .card{
+            img{
+                height:250px;
+            }
+
+            h1, h2, h3, h4, h5, h6{
+                width: 100%;
+                font-size: unset;
+                text-shadow: 2px 1px 10px rgba($color: #000000, $alpha: .3);
+            }
+        }
+        .card:hover img{
+            scale: 1.1;
+        }
+        .card:hover i{
+            opacity: 1;
+        }
+
+    }
+     // ========================================== END OF FRONT PAGE =============================================
+    // =============== SHOP =======================
+     section#products{
+        padding: 10rem 0;
+        #shop_prod_lists{
+            img{
+                height: 300px;
+            }
+        }
+        div#featured{
+            .owl-nav{
+                margin-top: 2rem;
+                button.owl-prev, button.owl-next{
+                    padding: 0.8rem 1.5rem!important;
+                }
+            }
+        }
+    }
+        // ASIDE
+        #aside{
+            #featured_prod_aside{
+                a{
+                    .card{
+                        transition:$trans2;
+                        height: 150px;
+                    }
+                }
+            }
+
+            #recent_post{
+                a{
+                    .card{
+                        height: 210px;
+                        img{
+                            height: 210px;
+                        }
+                    }
+                }
+            }
+        }
+     // =============== END OF SHOP =======================
+    //  =============== BLOG POST ========================
+    section#blog{
+        padding: 10rem 0;
+        .card{
+            img{
+                height: 400px;
+            }
+           .card-body{
+                .attributes{
+                    width: 100%;
+                }
+                .attributes::before{
+                    top: 50%;
+                    right: 1rem;
+                    transform: translateY(-50%);
+                    height: 5rem;
+                }
+           }
+        }
+    }
+    section#hero{
+        height: 110vh;
+    }
+    section#hero::before{
+        height: 110vh;
+    }
+    section#hero_single{
+        height: 110vh;
+    }
+    section#hero_single::before{
+        height: 110vh;
+    }
+    // ================= END OF BLOG POST ================
+    // =========== PAGE ABOUT ===============
+    // page about
+    section#page_about{
+        padding: 7rem 0;
+        .card{
+            .icon{
+               img{
+                    width: 100%;
+                    height: 80px;
+               }
+            }
+        }
+
+        #sec_2{
+            margin: 7rem 0;
+            padding: 7rem 0;
+        }
+        #sec_3{
+            .vstack{
+                img{
+                    width:100%;
+                    height: 300px;
+                }
+            }
+        }
+
+        .about_prod{
+            .g-img{
+               img{
+                height: 200px;
+               }
+            }
+        }
+    }
+    // ============ END OF PAGE ABOUT ==============
+    // ============ PAGE OUR STORE ============
+    section#our_store{
+        padding: 7rem 0;
+        .sec_1{
+            img{
+                height:200px;
+                object-fit: cover;
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: cover;
+           }
+        }
+    }
+    section#os_natural{
+        padding: 6rem 0;
+    }
+    section#editor_post{
+        padding: 7rem 0;
+    }
+    // ============END OF PAGE OUR STORE ============
+    // ============ PAGE OUR TEAM ============
+    section#team{
+        padding: 7rem 0;
+        .card{
+            img{
+                height: 400px;
+            }
+        }
+    }
+    // ============END OF PAGE OUR TEAM ============
+    // ======= PAGE WEBINAR ===========
+    section#webinar{
+        padding: 8rem 0;
+    }
+    // ======= END OF WEBINAR =========
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+    // ========================================== FRONT PAGE =============================================
+    // CAROUSEL
+    section#carousel{
+        div#carous{
+            .item{
+                height: 70vh;
+                width: 100%;
+                .content{
+                    width: 100%;
+                    top: 50%;
+                    left: 0;
+                    transform: translateY(-50%);
+                    z-index: 8;
+                }
+                img{
+                    height: 70vh;
+                }
+            }
+
+            .owl-nav{
+                top: 80%;
+                transform: translateY(-50%);
+                right: 1rem;
+                opacity: 0;
+                button.owl-prev, button.owl-next{
+                    background-color: $green;
+                    color: $green-light;
+                    transition: $trans;
+                    padding: .7rem .8rem!important;
+                }
+              
+            }
+            &:hover {
+                .owl-nav {
+                    opacity: 1!important;
+                }
+            }
+        }
+
+    }
+
+     // NEWS AND UPDATES
+     section#news_and_updates{
+        .col{
+            div{
+               
+                img{
+                    width: 100%;
+                    height:250px;
+                    transition: $trans2;
+                    scale: 1;
+    
+                    &:hover{
+                        scale: 1.1;
+                    }
+                }
+            }
+        }
+    }
+    // PRODUCT CATEGORIES
+    section#prod_categories{
+        padding: 5rem 0;
+        .shop_btn{
+            width: 40%;
+        }
+        .card{
+            img{
+                height:280px;
+            }
+
+            h1, h2, h3, h4, h5, h6{
+                width: 100%;
+                font-size: unset;
+                text-shadow: 2px 1px 10px rgba($color: #000000, $alpha: .3);
+            }
+        }
+        .card:hover img{
+            scale: 1.1;
+        }
+        .card:hover i{
+            opacity: 1;
+        }
+
+    }
+
+     // FEATURE PRODUCT
+     section#featured_prod{
+        padding: 6rem 0;
+        #featured_prod_slide{
+            .item{
+                .card{
+                    overflow: hidden;
+                    img{
+                        height: 270px;
+                        width: 100%;
+                    }
+                }
+                &:hover img{
+                    scale: 1.05;
+                }
+            }
+        }
+    }
+     // NEWS AND UPDATES
+     section#news_and_updates{
+        .col{
+            div{
+               
+                img{
+                    height:150px;
+                    &:hover{
+                        scale: 1.1;
+                    }
+                }
+            }
+        }
+    }
+     // ========================================== END OF FRONT PAGE =============================================
+
+    //  ============== SHOP ===================
+    section#products{
+        padding: 10rem 0;
+        div#featured{
+            .owl-nav{
+                margin-top: 2rem;
+                button.owl-prev, button.owl-next{
+                    padding: 0.8rem 1.5rem!important;
+                }
+            }
+        }
+    }
+
+     // ASIDE
+     #aside{
+        #featured_prod_aside{
+            a{
+                .card{
+                    height: 210px;
+                    img{
+                        height: 210px;
+                    }
+                }
+            }
+        }
+        #recent_post{
+            a{
+                .card{
+                    height: 75px;
+                    img{
+                        height: 75px;
+                    }
+                }
+            }
+        }
+    }
+     //  ============== END OF  SHOP ===================
+
+    // ============== BLOG POST =====================
+    section#blog{
+        padding: 8rem 0;
+        .card{
+            img{
+                height: 250px;
+            }
+           .card-body{
+                .attributes{
+                    width: 40%;
+                }
+                .attributes::before{
+                    top: 50%;
+                    right: 13rem;
+                    transform: translateY(-50%);
+                    height: 5rem;
+                }
+           }
+        }
+    }
+    section#hero{
+        height: 40vh;
+    }
+    section#hero::before{
+        height: 40vh;
+    }
+    section#hero_single{
+        height: 50vh;
+    }
+    section#hero_single::before{
+        height: 50vh;
+    }
+    // ================= END OF BLOG POST =====================
+    // ============= PAGE ABOUT ============
+    section#page_about{
+        padding: 8rem 0;
+        .card{
+            .icon{
+               img{
+                    width: 100%;
+                    height: 80px;
+               }
+            }
+        }
+
+        #sec_2{
+            margin: 7rem 0;
+            padding: 7rem 0;
+        }
+        #sec_3{
+            .vstack{
+                img{
+                    width:100%;
+                    height: 300px;
+                }
+            }
+        }
+
+        .about_prod{
+            .g-img{
+               img{
+                height: 130px;
+               }
+            }
+        }
+    }
+    // ============= END OF PAGE ABOUT ==========
+        // ============ PAGE OUR STORE ============
+    section#our_store{
+        padding: 7rem 0;
+        .sec_1{
+            img{
+                height:200px;
+           }
+        }
+    }
+    section#os_natural{
+        padding: 6rem 0;
+    }
+    section#editor_post{
+        padding: 7rem 0;
+    }
+    // ============END OF PAGE OUR STORE ============
+    // ============ PAGE OUR TEAM ============
+    section#team{
+        padding: 7rem 0;
+        .card{
+            img{
+                height: 400px;
+            }
+        }
+    }
+    // ============END OF PAGE OUR TEAM ============
+    // ============ PAGE OUR STORE ============
+    section#our_store{
+        padding: 7rem 0;
+        .sec_1{
+            img{
+                height:260px;
+           }
+        }
+    }
+    section#os_natural{
+        padding: 8rem 0;
+    }
+    section#editor_post{
+        padding: 7rem 0;
+    }
+    // ============END OF PAGE OUR STORE ============
+    // ============ PAGE OUR TEAM ============
+    section#team{
+        padding: 7rem 0;
+        .card{
+            img{
+                height: 400px;
+            }
+        }
+    }
+    // ============END OF PAGE OUR TEAM ============
+    // ======= PAGE WEBINAR ===========
+    section#webinar{
+        padding: 8rem 0;
+    }
+    // ======= END OF WEBINAR =========
+}
+
+// Large devices (desktops, 992px and u)
+@media (min-width: 992px) {
+// ========================================== FRONT PAGE =============================================
+   // HEADER
+   header{
+        #header-mid{
+            height: 6rem;
+        }
+    }
+    // CAROUSEL
+    section#carousel{
+        div#carous{
+            .item{
+                height: 100vh;
+                img{
+                    height: 100vh;
+                }
+            }
+        }
+
+    }
+
+     // NEWS AND UPDATES
+     section#news_and_updates{
+        .col{
+            div{
+               
+                img{
+                    width: 100%;
+                    height:250px;
+                    transition: $trans2;
+                    scale: 1;
+    
+                    &:hover{
+                        scale: 1.1;
+                    }
+                }
+            }
+        }
+    }
+    // PRODUCT CATEGORIES
+    section#prod_categories{
+        padding: 5rem 0;
+        .shop_btn{
+           a{
+            width: 60%;
+           }
+        }
+        .card{
+            img{
+                height:200px;
+            }
+
+            h1, h2, h3, h4, h5, h6{
+                width: 100%;
+                font-size: unset;
+                text-shadow: 2px 1px 10px rgba($color: #000000, $alpha: .3);
+            }
+        }
+        .card:hover img{
+            scale: 1.1;
+        }
+        .card:hover i{
+            opacity: 1;
+        }
+
+    }
+
+     // FEATURE PRODUCT
+     section#featured_prod{
+        padding: 6rem 0;
+        #featured_prod_slide{
+            .item{
+                .card{
+                    overflow: hidden;
+                    img{
+                        height: 270px;
+                        width: 100%;
+                    }
+                }
+                &:hover img{
+                    scale: 1.05;
+                }
+            }
+        }
+    }
+     // NEWS AND UPDATES
+     section#news_and_updates{
+        .col{
+            div{
+               
+                img{
+                    height:190px;
+                    &:hover{
+                        scale: 1.1;
+                    }
+                }
+            }
+        }
+    }
+     // ========================================== END OF FRONT PAGE =============================================
+
+
+    // ============== SHOP ===============
+    section#products{
+        padding: 10rem 0;
+        #shop_prod_lists{
+            img{
+                height: 230px;
+            }
+        }
+        div#featured{
+            .owl-nav{
+                margin-top: 2rem;
+                button.owl-prev, button.owl-next{
+                    padding: 0.8rem 1.5rem!important;
+                }
+            }
+        }
+    }
+    // aside
+    #aside{
+        #featured_prod_aside{
+            a{
+                .card{
+                    height: 210px;
+                    img{
+                        height: 210px;
+                    }
+                }
+            }
+        }
+        #recent_post{
+            a{
+                .card{
+                    height: 110px;
+                    img{
+                        height: 110px;
+                    }
+                }
+            }
+        }
+    }
+    // ================= END OF SHOP ==============
+    // ================ BLOG POST ====================
+    section#blog{
+        padding: 7rem 0;
+        .card{
+            img{
+                height: 320px;
+            }
+           .card-body{
+                .attributes::before{
+                    top: 50%;
+                    right: 0.1rem;
+                    transform: translateY(-50%);
+                    height: 5rem;
+                }
+           }
+        }
+    }
+    section#hero{
+        height: 35vh;
+    }
+    section#hero::before{
+        height: 35vh;
+    }
+    section#hero_single{
+        height: 60vh;
+    }
+    section#hero_single::before{
+        height: 60vh;
+    }
+    // =============== END OF BLOG POST ===============
+    // ============= PAGE ABOUT ================
+    section#page_about{
+        padding: 10rem 0;
+        .card{
+            .icon{
+               img{
+                    width: 100%;
+                    height: 80px;
+               }
+            }
+        }
+
+        #sec_2{
+            padding: 10rem 0;
+        }
+        #sec_3{
+            .vstack{
+                img{
+                    width:100%;
+                    height: 300px;
+                }
+            }
+        }
+        .about_prod{
+            .g-img{
+               img{
+                height: 200px;
+               }
+            }
+        }
+    }
+    // ============= END OF PAGE ABOUT ==========
+
+     // ============ PAGE OUR STORE ============
+     section#our_store{
+        padding: 7rem 0;
+        .sec_1{
+            img{
+                height:200px;
+           }
+        }
+    }
+    section#os_natural{
+        padding: 8rem 0;
+    }
+    section#editor_post{
+        padding: 7rem 0;
+    }
+    // ============END OF PAGE OUR STORE ============
+    // ============ PAGE OUR TEAM ============
+    section#team{
+        padding: 7rem 0;
+        .card{
+            img{
+                height: 400px;
+            }
+        }
+    }
+    // ============END OF PAGE OUR TEAM ============
+}
+
+// X-Large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+    // HEADER
+    header{
+    //    overflow: hidden;
+        .pat1{
+            display: block;
+            top: -2rem;
+            left: 0;
+            height: 150px;
+        }
+        .pat2{
+            display: block;
+            bottom: -3rem;
+            right: 6rem;
+            height: 150px;
+        }
+        .pat3{
+            display: block;
+            bottom: -2rem;
+            right: 0;
+            height: 150px;
+        }
+        #header-mid{
+            height: 6rem;
+          
+        }
+        
+    }
+    // FOOTER
+    footer{
+        #main_foot{
+            padding: 7rem 0;
+        }
+    }
+
+    // ========================================== FRONT PAGE =============================================
+    // CAROUSEL
+    section#carousel{
+        div#carous{
+            position: relative;
+            .item{
+                height: $item_height;
+                img{
+                    height: $item_height;
+                }
+            }
+
+            .owl-nav{
+                top: 50%;
+                transform: translateY(-50%);
+                right: 2rem;
+                button.owl-prev, button.owl-next{
+                    padding: .7rem .8rem!important;
+                    border-radius: 0!important;
+                }
+            }
+          
+        }
+
+    }
+
+    // STORE LISTS
+    section#store_lists{
+        padding: 5rem 0 7rem 0;
+        .col{
+            img{
+                width: 130px;
+            }
+        }
+    }
+    // SERVICES
+    section#services{
+        padding: 10rem 0;
+        .card{
+            .card-header{
+                img{
+                    height: 80px;
+                }
+            }
+        }
+    }
+
+    // PRODUCT CATEGORIES
+    section#prod_categories{
+        padding: 10rem 0;
+        .shop_btn{
+            width: 40%;
+            a{
+                width: unset;
+            }
+        }
+        .card{
+            img{
+                height:290px;
+            }
+
+            i{
+                transition: $trans2;
+                opacity: 0;
+            }
+
+            h1, h2, h3, h4, h5, h6{
+                width: 75%;
+                font-size: unset!important;
+                text-shadow: 2px 1px 10px rgba($color: #000000, $alpha: .3);
+            }
+        }
+        .card:hover img{
+            scale: 1.1;
+        }
+        .card:hover i{
+            opacity: 1;
+        }
+
+    }
+    // FEATURE PRODUCT
+    section#featured_prod{
+        padding: 10rem 0;
+        object-fit: cover;
+        width: auto;
+        background-size: cover;
+        background-repeat: no-repeat;
+        #featured_prod_slide{
+            .item{
+                .card{
+                    overflow: hidden;
+                    img{
+                        transition: $trans2;
+                        height: 250px;
+                        width: 100%;
+                        object-fit: cover;
+                        background: center/cover no-repeat;
+                        background-size: cover;
+                        scale: 1;
+
+                    }
+                }
+                &:hover img{
+                    scale: 1.05;
+                }
+            }
+        }
+    }
+    // TESTIMONIAL
+    section#testimonial{
+        padding: 8rem 0;
+
+        .card{
+            transition: $trans2;
+            cursor: pointer;
+            bottom: 0;
+            &:hover{
+                bottom: .7rem;
+            }
+        }
+    }
+   
+    // NEWS AND UPDATES
+    section#news_and_updates{
+        padding: 10rem 0 0 0;
+        position: relative;
+        .col{
+            div{
+               
+                img{
+                    object-fit: cover;
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    height: 300px;
+                    transition: $trans2;
+                    scale: 1;
+    
+                    &:hover{
+                        scale: 1.1;
+                    }
+                }
+            }
+        }
+    }
+   
+    // ========================================== END OF FRONT PAGE =============================================
+
+    // ================ SHOP =====================
+    section#products{
+        padding: 10rem 0;
+        div#featured{
+            img{
+                height: 300px;
+                width: 100%;
+            }
+            .owl-nav{
+                margin-top: 2rem;
+                button.owl-prev, button.owl-next{
+                    background-color: $green;
+                    color: $white;
+                    padding: 0.8rem 1.5rem!important;
+                    transition: $trans;
+                }
+
+                button.owl-prev:hover, button.owl-next:hover{
+                    background-color: $hover_green;
+                }
+            }
+        }
+        #shop_prod_single{
+            img.img{
+                height: 400px;
+                object-fit: cover;
+                width: 100%;
+            }
+            img.img-sm{
+                height: 100px;
+                object-fit: cover;
+            }
+        }
+    }
+
+    #aside{
+        #featured_prod_aside{
+            a{
+                .card{
+                    height: 180px;
+                    img{
+                        height: 180px;
+                    }
+                }
+            }
+        }
+    }
+    // =============== END OF SHOP ===================
+    // ================ BLOG POST ====================
+    section#blog{
+        padding: 8rem 0;
+        .card{
+            img{
+                width: 100%;
+                height: 400px;
+                object-fit: cover;
+                background-position: center;
+                background-size: cover;
+            }
+           .card-body{
+                .attributes{
+                    width: 25%;
+                    position: relative;
+                }
+                .attributes::before{
+                    content: '';
+                    position: absolute;
+                    top: 50%;
+                    right: 1rem;
+                    transform: translateY(-50%);
+                    width: 1px;
+                    height: 5rem;
+                    background-color: $green-light;
+                }
+                .title{
+                    width: calc(100% - 25%);
+                }
+           }
+        }
+    }
+    section#hero{
+        height: 55vh;
+    }
+    section#hero::before{
+        height: 55vh;
+    }
+    section#hero_single{
+        height: 70vh;
+    }
+    section#hero_single::before{
+        height: 70vh;
+    }
+    // ================ END OF BLOG POST =================
+    // ============= PAGE ABOUT ==============
+    section#page_about{
+        padding: 10rem 0;
+        .card{
+            .icon{
+               img{
+                    width: 100%;
+                    height: 80px;
+               }
+            }
+        }
+
+        #sec_2{
+            margin: 10rem 0 8rem 0;
+            padding: 8rem 0;
+        }
+        #sec_3{
+            .vstack{
+                img{
+                    width:100%;
+                    height: 300px;
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                }
+            }
+        }
+
+        .about_prod{
+            .g-img{
+               img{
+                height: 260px;
+               }
+            }
+        }
+    }
+    // ============= END OF PAGE ABOUT =======
+      // ============ PAGE OUR STORE ============
+      section#our_store{
+        padding: 10rem 0;
+        .sec_1{
+            img{
+                height:250px;
+           }
+        }
+    }
+    section#os_natural{
+        padding: 6rem 0;
+    }
+    section#editor_post{
+        padding: 7rem 0;
+    }
+    // ============END OF PAGE OUR STORE ============
+    // ============ PAGE OUR TEAM ============
+    section#team{
+        padding: 7rem 0;
+        .card{
+            img{
+                height: 400px;
+            }
+        }
+    }
+    // ============END OF PAGE OUR TEAM ============
+    // ======= PAGE WEBINAR ===========
+    section#webinar{
+        padding: 10rem 0;
+    }
+    // ======= END OF WEBINAR =========
+}
+
+// XX-Large devices (larger desktops, 1400px and up)
+@media (min-width: 1400px) {
+
+}
