@@ -170,7 +170,7 @@ $green_light: #6b993b;
             opacity: .4;
         }
         #header-mid{
-            height: 7rem;
+            height: 8rem;
             width: 100%;
             border-bottom: 1px solid rgba($green-light, .2);
           
@@ -206,9 +206,13 @@ $green_light: #6b993b;
             padding: 7rem 0;
         }
     }
-
+    // ======================PAGE LOGIN=================
+    section#create_account{
+        padding: 5rem 0;
+    }
+    // ======================END OF PAGE LOGIN=================
     #cart_count{
-        left: -1rem;
+        right: -1rem;
         top: 50%;
         transform: translateY(-50%);
         span{
@@ -249,7 +253,7 @@ $green_light: #6b993b;
                 opacity: 0;
                 button.owl-prev, button.owl-next{
                     background-color: $green;
-                    color: $green-light;
+                    color: $white;
                     transition: $trans;
                     padding: .7rem .8rem!important;
                     border-radius: 0!important;
@@ -690,6 +694,12 @@ $green_light: #6b993b;
         padding: 7rem 0;
     }
     // ======= END OF WEBINAR =========
+
+    // ======= PAGE TESTIMONIAL ===========
+    section#reviewForm{
+        margin-bottom: 7rem;
+    }
+    // ======= END OF TESTIMONIAL PAGE =========
 }
 // Small devices (landscape phones, 576px and up)
 @media (min-width: 576px) {
@@ -722,6 +732,11 @@ $green_light: #6b993b;
         }
      
     }
+     // ======================PAGE LOGIN=================
+     section#create_account{
+        padding: 6rem 0;
+    }
+    // ======================END OF PAGE LOGIN=================
     // ========================================== FRONT PAGE =============================================
     // CAROUSEL
     section#carousel{
@@ -747,9 +762,6 @@ $green_light: #6b993b;
                 right: 1rem;
                 opacity: 0;
                 button.owl-prev, button.owl-next{
-                    background-color: $green;
-                    color: $green-light;
-                    transition: $trans;
                     padding: .7rem .8rem!important;
                 }
               
@@ -951,6 +963,11 @@ $green_light: #6b993b;
 
 // Medium devices (tablets, 768px and up)
 @media (min-width: 768px) {
+     // ======================PAGE LOGIN=================
+     section#create_account{
+        padding: 7rem 0;
+    }
+    // ======================END OF PAGE LOGIN=================
     // ========================================== FRONT PAGE =============================================
     // CAROUSEL
     section#carousel{
@@ -976,9 +993,6 @@ $green_light: #6b993b;
                 right: 1rem;
                 opacity: 0;
                 button.owl-prev, button.owl-next{
-                    background-color: $green;
-                    color: $green-light;
-                    transition: $trans;
                     padding: .7rem .8rem!important;
                 }
               
@@ -1236,7 +1250,12 @@ $green_light: #6b993b;
 
 // Large devices (desktops, 992px and u)
 @media (min-width: 992px) {
-// ========================================== FRONT PAGE =============================================
+     // ======================PAGE LOGIN=================
+     section#create_account{
+        padding: 7rem 0;
+    }
+    // ======================END OF PAGE LOGIN=================
+    // ========================================== FRONT PAGE =============================================
    // HEADER
    header{
         #header-mid{
@@ -1474,6 +1493,11 @@ $green_light: #6b993b;
 
 // X-Large devices (large desktops, 1200px and up)
 @media (min-width: 1200px) {
+     // ======================PAGE LOGIN=================
+     section#create_account{
+        padding: 8rem 0;
+    }
+    // ======================END OF PAGE LOGIN=================
     // HEADER
     header{
     //    overflow: hidden;
@@ -1821,6 +1845,11 @@ $green_light: #6b993b;
         padding: 10rem 0;
     }
     // ======= END OF WEBINAR =========
+    // ======= PAGE TESTIMONIAL ===========
+    section#reviewForm{
+        margin-bottom: 9rem;
+    }
+    // ======= END OF TESTIMONIAL PAGE =========
 }
 
 // XX-Large devices (larger desktops, 1400px and up)
